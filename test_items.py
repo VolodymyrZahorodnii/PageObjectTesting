@@ -14,7 +14,7 @@ class General():
         self.browser.quit()
 
 class LocatorForTheButton():
-    button = (By.CSS_SELECTOR, "#login_link")
+    button = (By.CSS_SELECTOR, ".btn.btn-lg.btn-primary.btn-add-to-basket")
 
 class SearchingMechanism(General):
 
