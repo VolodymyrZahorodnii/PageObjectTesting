@@ -28,7 +28,7 @@ class SearchingMechanism(General):
     def should_be_the_button(self):
         assert self.is_element_present(*LocatorForTheButton.button), 'The button is not here'
 
-def test_guest_can_go_to_login_page(browser):
+def test_user_can_actually_see_the_button_on_the_page(browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
         page = SearchingMechanism(browser, link)
         page.open()
