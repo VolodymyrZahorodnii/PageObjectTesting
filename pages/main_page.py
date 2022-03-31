@@ -5,7 +5,7 @@ from .locators import MainPageLocators
 
 
 class MainPage(BasePage):
-    def go_to_login_page(self):
+    def go_to_the_page(self):
         link = self.browser.find_element_by_css_selector("#login_link")
         link.click()
         alert = self.browser.switch_to.alert
