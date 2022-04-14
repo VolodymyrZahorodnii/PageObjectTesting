@@ -10,10 +10,6 @@ class MainPage(BasePage):
     def __init__(self, *args, **kwargs):
         super(MainPage, self).__init__(*args, **kwargs)
 
-    def go_to_the_page(self):
-        link = self.browser.find_element_by_css_selector("#login_link")
-        link.click()
-
     def should_be_login_link(self):
         assert self.is_element_present(*MainPageLocators.LOGIN_LINK), "Login link is not presented"
 

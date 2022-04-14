@@ -6,7 +6,7 @@ import math
 
 from selenium.webdriver.support.wait import WebDriverWait
 
-from .locators import BasePageLocators
+from .locators import BasePageLocators, MainPageLocators
 
 
 class BasePage():
@@ -23,8 +23,8 @@ class BasePage():
         # self.browser.implicitly_wait(timeout)
 
     def go_to_login_page(self):
-        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
-        link.click()
+        login_page = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        login_page.click()
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
@@ -60,3 +60,20 @@ class BasePage():
             return False
 
         return True
+
+    def go_to_the_cart(self):
+        cart = self.browser.find_element(*MainPageLocators.CART_BUTTON)
+        cart.click()
+
+    def register_new_user(self, email, password):
+        add_email = self.browser.find_element(*MainPageLocators.EMAIL_FIELD)
+        add_email.send_keys(email)
+        first_password = self.browser.find_element(*MainPageLocators.PASSWORD_FIELD)
+        first_password.send_keys(password)
+        second_password = self.browser.find_element(*MainPageLocators.REPEAT_PASSWORD_FIELD)
+        second_password.send_keys(password)
+
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                         "probably unauthorised user"
